@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Security Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="icons/icon48.png" alt="Scanner" class="logo-icon">
+                <h1>URL Security Scanner</h1>
+            </div>
+            <div class="tagline">Powered by multiple security engines</div>
+        </header>
+
+        <!-- Current Tab Section -->
+        <section class="current-tab-section">
+            <button id="scanCurrentTab" class="btn-primary">
+                <span class="icon">🔍</span>
+                Scan Current Tab
+            </button>
+        </section>
+
+        <!-- URL Input Section -->
+        <section class="input-section">
+            <div class="input-group">
+                <input type="url" id="urlInput" placeholder="Enter URL to scan (https://example.com)" class="url-input">
+                <button id="scanButton" class="btn-scan">
+                    <span class="btn-text">Scan URL</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Alert Section -->
+        <section class="alerts-section" id="alertsSection" style="display: none;">
+            <div id="alertBanner" class="alert-banner">
+                <div class="alert-icon" id="alertIcon"></div>
+                <div class="alert-content">
+                    <h3 id="alertTitle"></h3>
+                    <p id="alertMessage"></p>
+                    <div class="alert-details" id="alertDetails"></div>
+                </div>
+                <button id="acknowledgeBtn" class="btn-acknowledge" style="display: none;">I Understand</button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="result-header">
+                <h2 id="resultStatus">Analyzing...</h2>
+                <div class="threat-score">
+                    <div class="score-circle" id="scoreCircle">
+                        <span class="score-number" id="scoreNumber">0</span>
+                        <span class="score-percent">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-details">
+                <div class="detection-summary">
+                    <div class="engines-info">
+                        <span id="detectedEngines">0</span>/<span id="totalEngines">87</span> 
+                        security engines detected threats
+                    </div>
+                    <div class="scan-time">
+                        Scanned: <span id="scanTime"></span>
+                    </div>
+                </div>
+
+                <div class="threat-breakdown" id="threatBreakdown">
+                    <!-- Threat details will be populated here -->
+                </div>
+
+                <div class="engines-grid" id="enginesGrid">
+                    <!-- Engine results will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="actions-section" id="actionsSection" style="display: none;">
+            <div class="action-group">
+                <h3>Export Report</h3>
+                <div class="button-row">
+                    <button id="exportPDF" class="btn-export">📄 PDF</button>
+                    <button id="exportJSON" class="btn-export">📊 JSON</button>
+                    <button id="exportCSV" class="btn-export">📈 CSV</button>
+                </div>
+            </div>
+
+            <div class="action-group">
+                <h3>Share Results</h3>
+                <div class="button-row">
+                    <button id="copyLink" class="btn-share">🔗 Copy Link</button>
+                    <button id="copyText" class="btn-share">📋 Copy Text</button>
+                    <button id="shareEmail" class="btn-share">📧 Email</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="history-section">
+            <div class="history-header">
+                <h3>Recent Scans</h3>
+                <button id="clearHistory" class="btn-clear">Clear</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="history-empty">No recent scans</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="version">v1.0.0</div>
+            <div class="credits">Security scanning technology</div>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
