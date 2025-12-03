@@ -7,6 +7,8 @@ const port = 3000;
 app.get('/', (req, res) => {
   res.send('Web Extension DevOps Demo is Running 🚀 - Updated Version!');
 });
+console.log("CI/CD workflow test!");
+
 
 
 app.listen(port, () => {
