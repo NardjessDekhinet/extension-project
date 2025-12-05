@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Hello from backend!' });
+  res.json({ message: 'testtt' });
 });
 
 // Only start server if not in test
