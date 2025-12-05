@@ -5,7 +5,6 @@ const port = 3000;
 // Simple test API
 
 app.get("/", (req, res) => {
-  res.json({ message: "CI/CD working! Latest version deployed" });
   res.json({ message: "New version deployed via CI/CD!" });
 
 });

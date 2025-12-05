@@ -1,7 +1,7 @@
 // Background Service Worker for URL Security Scanner Extension
 fetch("https://extension-demo-latest.onrender.com")
   .then(res => res.json())
-  .then(data => console.log("API says:", data));
+  .then(data =>  console.log("Backend says:", d.message));
 
 
 // Extension installation handler
