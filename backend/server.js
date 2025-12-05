@@ -4,10 +4,12 @@ const port = 3000;
 
 // Simple test API
 
-app.get('/', (req, res) => {
-  res.send('Web Extension DevOps Demo is Running 🚀 - Updated Version!');
+app.get("/", (req, res) => {
+  res.json({ message: "CI/CD working! Latest version deployed" });
+  res.json({ message: "New version deployed via CI/CD!" });
+
 });
-console.log("CI/CD workflow test!");
+
 
 
 
