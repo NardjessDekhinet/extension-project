@@ -1,18 +1,15 @@
-const express = require("express");
+// server.js
+const express = require('express');
 const app = express();
-const port = 3000;
 
-// Simple test API
-
-app.get("/", (req, res) => {
-  res.json({ message: "New version deployed via CI/CD!" });
-
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello from backend!' });
 });
 
+// Only start server if not in test
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => console.log(`Server running on port ${port}`));
+}
 
-
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-module.exports = app; // <- required for supertest
+module.exports = app;
