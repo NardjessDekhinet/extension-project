@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Chrome extension build artifacts
+dist/
+build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: IDE/editor folders
+.vscode/
+.idea/
+
+# Optional: GitHub Actions temp files
+.github/workflows/*.temp

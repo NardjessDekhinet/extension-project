@@ -1,4 +1,28 @@
 // URL Security Scanner - Popup Script
+document.addEventListener("DOMContentLoaded", () => {
+    // Load scan history safely
+    chrome.storage.local.get('scanHistory', (data) => {
+        const history = data.scanHistory || [];
+        console.log('Loaded scan history:', history);
+
+        const historyList = document.getElementById('history-list');
+        if (historyList) {
+            historyList.innerHTML = ''; // clear first
+            history.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.url} - ${item.scanTime}`;
+                historyList.appendChild(li);
+            });
+        }
+    });
+
+    // Fetch from backend (Render)
+    fetch("https://extension-demo-latest.onrender.com")
+        .then(res => res.json())
+        .then(d => console.log("Backend says:", d.message))
+        .catch(err => console.error("Backend fetch error:", err));
+});
+
 class URLSecurityScanner {
     constructor() {
         this.isScanning = false;
