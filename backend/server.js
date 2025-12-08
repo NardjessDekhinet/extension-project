@@ -3,8 +3,9 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.json({ message: 'testtt' });
+  res.json({ message: 'modification' });
 });
+
 
 // Only start server if not in test
 if (require.main === module) {
